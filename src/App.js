@@ -19,9 +19,28 @@ import Fancy from './exercises/Fancy';
 
 // Klassbaserad komponent:
 class App extends React.Component {
-	state = {
-		value: 1
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: 1,
+			data: null
+		};
+		console.log('Constructor');
 	}
+	// state = {
+	// 	value: 1
+	// }
+
+	componentDidMount() {
+		console.log('component did mount');
+		setTimeout(() => {
+			console.log('3 seconds has passed');
+			this.setState({
+				data: [true, false, true]
+			});
+		}, 1000*3);
+	}
+
 	handleClick = event => {
 		console.log('handleClick anropad med parametern:', event);
 		this.setState({
@@ -29,6 +48,16 @@ class App extends React.Component {
 		});
 	}
 	render() {
+		let dataElements;
+		if( this.state.data ) {
+			dataElements = this.state.data.map(
+				b => <li>{b + ''}</li>
+			)
+		} else {
+			dataElements = <li>Ingen data</li>;
+		}
+
+
 		return (
 			<div className="App">
 			<div>
@@ -39,6 +68,7 @@ class App extends React.Component {
 				<Fancy text="Hello world!🌎" color="hotpink" />
 				<Fancy text={'Random value: ' + Math.random()} color="navy" />
 			</div>
+			<ul>{dataElements}</ul>
 			</div>
 		);
 	}
