@@ -1,3 +1,9 @@
+.fancy {
+	/* color: hotpink; */
+	text-decoration: underline 3px salmon;
+	font-size: 20px;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Fancy from './exercises/Fancy';
 
 // Funktionell komponent:
 // const App = () => {
@@ -30,8 +31,14 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
+			<div>
 				The value is: {this.state.value} <br/>
 				<button onClick={this.handleClick}>Click me</button>
+			</div>
+			<div>
+				<Fancy text="Hello world!🌎" color="hotpink" />
+				<Fancy text={'Random value: ' + Math.random()} color="navy" />
+			</div>
 			</div>
 		);
 	}
