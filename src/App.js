@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Fancy from './exercises/Fancy';
+import SearchResult from './exercises/searchResult/SearchResult';
 
 // Funktionell komponent:
 // const App = () => {
@@ -69,6 +71,10 @@ class App extends React.Component {
 				<Fancy text={'Random value: ' + Math.random()} color="navy" />
 			</div>
 			<ul>{dataElements}</ul>
+
+			<SearchResult />
+			<SearchResult />
+			<SearchResult />
 			</div>
 		);
 	}
