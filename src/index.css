@@ -1,39 +1,86 @@
 .fancy {
-	/* color: hotpink; */
-	text-decoration: underline 3px salmon;
-	font-size: 20px;
+    /* color: hotpink; */
+    text-decoration: underline 3px salmon;
+    font-size: 20px;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
 
 .searchResult {
-	font-size: 0.8em;
-	font-family: sans-serif;
-	line-height: 1.5em;
+    font-size: 0.8em;
+    font-family: sans-serif;
+    line-height: 1.5em;
 }
 
-.searchResult > .heading {
-	text-decoration: none;
-	display: block;
-	font-size: 1.3em;
-}
-.searchResult > .heading:hover {
-	text-decoration: underline;
+.searchResult>.heading {
+    text-decoration: none;
+    display: block;
+    font-size: 1.3em;
 }
 
-.searchResult > .link {
-	color: green;
-	text-decoration: none;
-	display: block;
+.searchResult>.heading:hover {
+    text-decoration: underline;
+}
+
+.searchResult>.link {
+    color: green;
+    text-decoration: none;
+    display: block;
+}
+
+.selectedTab {
+    transition: 0.2s ease;
+    transform: scale(1.1) rotate(20deg);
+    border-bottom: none;
+    padding: 0 4px;
+}
+
+.selectedTab:hover {
+    transform: rotate(360deg);
+}
+
+.conditionalText {
+    padding: 20px;
+    background-color: lightblue;
+}
+
+input[type=checkbox] {
+    margin-right: 10px;
+    opacity: 1;
+}
+
+input[type=checkbox]:before {
+    border-radius: 20px;
+    margin-top: -3px;
+    margin-left: -3px;
+    content: "";
+    opacity: 1;
+    display: block;
+    width: 17px;
+    height: 17px;
+    background-color: white;
+}
+
+input[type=checkbox]:checked:before {
+    border-radius: 20px;
+    margin-top: -3px;
+    margin-left: -3px;
+    content: "";
+    opacity: 1;
+    display: block;
+    width: 17px;
+    height: 17px;
+    background-color: blue;
+
 }

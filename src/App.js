@@ -3,6 +3,9 @@ import React from 'react';
 import './App.css';
 import Fancy from './exercises/Fancy';
 import SearchResult from './exercises/searchResult/SearchResult';
+import Tabs from './exercises/Tabs';
+import Counter from './exercises/Counter';
+import ConditionalTextField from './exercises/ConditionalTextField';
 
 // Funktionell komponent:
 // const App = () => {
@@ -24,7 +27,6 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 1,
 			data: null
 		};
 		console.log('Constructor');
@@ -43,17 +45,12 @@ class App extends React.Component {
 		}, 1000*3);
 	}
 
-	handleClick = event => {
-		console.log('handleClick anropad med parametern:', event);
-		this.setState({
-			value: this.state.value + 1
-		});
-	}
+
 	render() {
 		let dataElements;
 		if( this.state.data ) {
 			dataElements = this.state.data.map(
-				b => <li>{b + ''}</li>
+				(b, index) => <li key={index}>{b + ''}</li>
 			)
 		} else {
 			dataElements = <li>Ingen data</li>;
@@ -62,19 +59,30 @@ class App extends React.Component {
 
 		return (
 			<div className="App">
-			<div>
-				The value is: {this.state.value} <br/>
-				<button onClick={this.handleClick}>Click me</button>
-			</div>
-			<div>
-				<Fancy text="Hello world!🌎" color="hotpink" />
-				<Fancy text={'Random value: ' + Math.random()} color="navy" />
-			</div>
-			<ul>{dataElements}</ul>
+			<Tabs>
+				<div>
+					<Counter />
+					<Counter />
+					<Counter />
+					<Counter />
+					<Counter />
+				</div>
 
-			<SearchResult />
-			<SearchResult />
-			<SearchResult />
+				<div>
+					<Fancy text="Hello world!🌎" color="hotpink" />
+					<Fancy text={'Random value: ' + Math.random()} color="navy" />
+				</div>
+
+				<ul>{dataElements}</ul>
+
+				<div>
+					<SearchResult />
+					<SearchResult />
+					<SearchResult />
+				</div>
+
+				<ConditionalTextField />
+			</Tabs>
 			</div>
 		);
 	}
