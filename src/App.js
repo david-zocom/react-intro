@@ -6,6 +6,7 @@ import SearchResult from './exercises/searchResult/SearchResult';
 import Tabs from './exercises/Tabs';
 import Counter from './exercises/Counter';
 import ConditionalTextField from './exercises/ConditionalTextField';
+import HooksDemo from './exercises/HooksDemo';
 
 // Funktionell komponent:
 // const App = () => {
@@ -82,6 +83,8 @@ class App extends React.Component {
 				</div>
 
 				<ConditionalTextField />
+
+				<HooksDemo />
 			</Tabs>
 			</div>
 		);
