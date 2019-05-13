@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HooksDemoItem from './HooksDemoItem';
 
 const HooksDemo = props => {
 	const [data, setData] = useState([
@@ -8,11 +9,15 @@ const HooksDemo = props => {
 	]);
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
-	const list = data.map(o => (
-		<li key={o.name + o.phone}>
-			{o.name} has number {o.phone}
-		</li>
-	))
+
+	const updateList = (oldPerson, newPerson) => {
+		let newData = data.map(p => {
+			if( p === oldPerson )
+				return newPerson;
+			return p;
+		});
+		setData(newData);
+	}
 	const addPersonToData = () => {
 		let newPerson = { name: name, phone: phone };
 		let dataCopy = [...data];  // spread operator för att kopiera en lista
@@ -20,6 +25,12 @@ const HooksDemo = props => {
 		setData(dataCopy);
 		// dataCopy = [...data, newPerson]  <-- gör samma sak
 	}
+
+	const list = data.map(o => (
+		<HooksDemoItem key={o.name + o.phone}
+		person={o}
+		updateList={updateList}/>
+	))
 	return (
 		<div>
 			<ol> {list} </ol>
@@ -30,7 +41,6 @@ const HooksDemo = props => {
 				value={phone}
 				onChange={event => setPhone(event.target.value)} />
 			<button onClick={addPersonToData}>Add!</button>
-			{name}, {phone}
 		</div>
 	)
 }
